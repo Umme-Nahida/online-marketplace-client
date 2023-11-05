@@ -100,7 +100,7 @@ const Navber = () => {
                                     <img src={user.photoURL} />
                                 </div>
                             </label>
-                            <button onClick={handleSignOut} className="btn ">Log out</button>
+                            <button onClick={handleSignOut} className="btn bg-[#F29618] ">Log out</button>
                         </>
                         :
                         <button className="btn btn-warning bg-[#F29618] text-white">login</button>
