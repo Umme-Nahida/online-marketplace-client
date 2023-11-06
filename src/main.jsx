@@ -12,6 +12,7 @@ import Register from './pages/Register/Register.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import AddJobs from './pages/AddJobs/AddJobs.jsx';
 import Category from './pages/Home/Category/Category.jsx';
+import JobDetails from './pages/jobDetails/JobDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/jobDetails/:id',
+        element: <JobDetails></JobDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/jobDetails/${params.id}`)
       },
     ]
   },

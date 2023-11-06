@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -9,6 +9,7 @@ const Category = () => {
     const categoryOne = allCategoryJobs?.filter(job => job?.category === "web-development")
     const categoryTwo = allCategoryJobs?.filter(job => job?.category === "digital-marketing")
     const categoryThree = allCategoryJobs?.filter(job => job?.category === "graphics-design")
+
 
     return (
         <div className='m-20'>
@@ -27,16 +28,18 @@ const Category = () => {
                                     <div className="card-body">
                                         <h2 className="card-title">{job?.jobTitle} </h2>
                                         {
-                                            job?.description.length > 150 ? <p>{job?.description.slice(0,150)}...... </p> : <p>{job?.description}</p>
+                                            job?.description.length > 150 ? <p>{job?.description.slice(0, 150)}...... </p> : <p>{job?.description}</p>
                                         }
                                         <div className="card-actions items-center  justify-items-center">
                                             <span className='font-bold'>Price rang:</span>
                                             <div>${job?.minPrice} -</div>
                                             <div>${job?.maxPrice} </div>
                                         </div>
-                                        <p className='font-medium text-[#F18615] '>Deadline: {job?.deadline} </p>
+                                        <p className='font-medium text-red-500 '>Deadline: {job?.deadline} </p>
                                         <div className="card-actions justify-end">
-                                            <button className="btn btn-primary">Bid Now</button>
+                                            <Link to={`/jobDetails/${job._id}`} >
+                                                <button className="btn bg-[#2071AB] text-white hover:text-black">Bid Now</button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -54,16 +57,16 @@ const Category = () => {
                                     <div className="card-body">
                                         <h2 className="card-title">{job?.jobTitle} </h2>
                                         {
-                                            job?.description.length > 150 ? <p>{job?.description.slice(0,150)}...... </p> : <p>{job?.description}</p>
+                                            job?.description.length > 150 ? <p>{job?.description.slice(0, 150)}...... </p> : <p>{job?.description}</p>
                                         }
                                         <div className="card-actions items-center  justify-items-center">
                                             <span className='font-bold'>Price rang:</span>
                                             <div>${job?.minPrice} -</div>
                                             <div>${job?.maxPrice} </div>
                                         </div>
-                                        <p className='font-medium text-[#F18615] '>Deadline: {job?.deadline} </p>
+                                        <p className='font-medium text-red-500'>Deadline: {job?.deadline} </p>
                                         <div className="card-actions justify-end">
-                                            <button className="btn btn-primary">Bid Now</button>
+                                            <button className="btn bg-[#2071AB] text-white hover:text-black">Bid Now</button>
                                         </div>
                                     </div>
                                 </div>
@@ -81,17 +84,17 @@ const Category = () => {
                                     <div className="card-body">
                                         <h2 className="card-title">{job?.jobTitle} </h2>
                                         {
-                                            job?.description.length > 150 ? <p>{job?.description.slice(0,150)}...... </p> : <p>{job?.description}</p>
+                                            job?.description.length > 150 ? <p>{job?.description.slice(0, 150)}...... </p> : <p>{job?.description}</p>
                                         }
-                                        
+
                                         <div className="card-actions items-center  justify-items-center">
                                             <span className='font-bold'>Price rang:</span>
                                             <div>${job?.minPrice} -</div>
                                             <div>${job?.maxPrice} </div>
                                         </div>
-                                        <p className='font-medium text-[#F18615] '>Deadline: {job?.deadline} </p>
+                                        <p className='font-medium text-red-500 '>Deadline: {job?.deadline} </p>
                                         <div className="card-actions justify-end">
-                                            <button className="btn btn-primary">Bid Now</button>
+                                            <button className="btn bg-[#2071AB] text-white hover:text-black ">Bid Now</button>
                                         </div>
                                     </div>
                                 </div>
