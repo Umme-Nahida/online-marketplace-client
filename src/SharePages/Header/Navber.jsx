@@ -17,7 +17,7 @@ const Navber = () => {
             .catch(err => console.log(err))
     }
     return (
-        <div className="navbar py-0 bg-based-100 shadow-xl">
+        <div className="navbar px-10 py-0 bg-[#E5E7EB] shadow-xl">
             {/* dropdown */}
             <div className="dropdown navbar-start lg:hidden ">
                 <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -35,34 +35,34 @@ const Navber = () => {
             </div>
 
             <div className="navbar-center hidden lg:flex">
-                <ul className="flex flex-col md:flex-row lg:flex-row items-center text-lg text-[#0d0d0f] font-bold lg:gap-8 md:gap-5 gap-3 ml-40 md:ml-64 lg:ml-0">
+                <ul className="flex flex-col md:flex-row lg:flex-row items-center justify-center text-base text-[#0d0d0f] font-bold lg:gap-8 md:gap-5 gap-3 ml-40 md:ml-64 lg:ml-0">
                     <li>
                         <NavLink
                             to="/"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending border" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-lg font-semibold" : ""
+                                isPending ? "pending border" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
                             }
                         >
                             Home
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/addJob' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-lg font-semibold" : ""
+                        <NavLink to='/addJobs' className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
                         } >
                             Add job
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to='/myPost' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-lg font-semibold" : ""
+                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
                         } >
                             My posted job
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to='/bidRequests' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-lg font-semibold" : ""
+                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
                         } >
                             Bid Requests
                         </NavLink>
@@ -71,7 +71,7 @@ const Navber = () => {
                         <NavLink
                             to="/myBids"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-lg font-semibold" : ""
+                                isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
                             }
                         >
                             My bids
@@ -81,7 +81,7 @@ const Navber = () => {
                         <NavLink
                             to="/login"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-lg font-semibold" : ""
+                                isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
                             }
                         >
                             Login
@@ -94,16 +94,16 @@ const Navber = () => {
                 {
                     user ?
                         <>
-                           <p>{user.displayName}</p>
+                           <p>{user?.displayName}</p>
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src={user.photoURL} />
+                                    <img src={user?.photoURL} />
                                 </div>
                             </label>
-                            <button onClick={handleSignOut} className="btn bg-[#F29618] ">Log out</button>
+                            <button onClick={handleSignOut} className="btn btn-primary bg-[#5593DD] rounded-md text-white ">Log out</button>
                         </>
                         :
-                        <button className="btn btn-warning bg-[#F29618] text-white">login</button>
+                        <button className="btn bg-[#5593DD] text-white hover:text-black">login</button>
                 }
             </div>
         </div>

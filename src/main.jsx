@@ -10,6 +10,8 @@ import Login from './pages/Login/Login.jsx';
 import Home from './pages/Home/Home/Home.jsx';
 import Register from './pages/Register/Register.jsx';
 import AuthProvider from './AuthProvider/AuthProvider.jsx';
+import AddJobs from './pages/AddJobs/AddJobs.jsx';
+import Category from './pages/Home/Category/Category.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: ()=> fetch('http://localhost:5000/allJobs')
+      },
+      {
+        path: '/category',
+        element: <Category></Category>
+      },
+      {
+        path: '/addJobs',
+        element: <AddJobs></AddJobs>
       },
       {
         path: '/login',
