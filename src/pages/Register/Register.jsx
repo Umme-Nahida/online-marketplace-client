@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -10,6 +10,7 @@ import { FcGoogle } from "react-icons/fc";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { creatUser, googleSignIn } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleForm = e => {
         e.preventDefault();
@@ -27,6 +28,9 @@ const Register = () => {
                     'you have sign up successfully',
                     'success'
                   )
+                  e.target.reset()
+                  navigate('/')
+                  
                 updateProfile(result.user, {
                   displayName:name, photoURL:img
                   

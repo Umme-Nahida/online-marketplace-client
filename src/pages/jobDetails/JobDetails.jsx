@@ -1,9 +1,39 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import useAuthUserInfo from '../Hooks/useAuthUserInfo';
+import Swal from 'sweetalert2';
 
 const JobDetails = () => {
     const { user } = useAuthUserInfo()
+    const handleBid = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const myEmail = form.myEmail.value;
+        const buyerEmail = form.buyerEmail.value;
+        const minPrice = form.minPrice.value;
+        const maxPrice = form.maxPrice.value;
+        const deadline = form.deadline.value;
+        const bidInfo = {myEmail,buyerEmail,minPrice,maxPrice,deadline}
+        console.log(bidInfo)
+        fetch('http://localhost:5000/storeBidJobs', {
+            method:'POST',
+            headers:{
+                'constent-type' : 'application/json'
+            },
+            body: JSON.stringify(bidInfo)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                Swal.fire(
+                    'Great',
+                    'You have add the bid project successfully',
+                    'success'
+                  )
+            }
+        })
+
+    }
 
     const jobDetailsData = useLoaderData()
     const { category, deadline, description, jobTitle, email, maxPrice, minPrice } = jobDetailsData;
@@ -21,7 +51,7 @@ const JobDetails = () => {
                                 <div className='font-bold text-xl'>${minPrice} -</div>
                                 <div className='font-bold text-xl'>${maxPrice} </div>
                             </div>
-                            <p className='text-[#F28D17] font-bold text-xl'>Deadline: {deadline}</p>
+                            <p className='text-white font-bold text-xl'>Deadline: {deadline}</p>
                         </div>
                         <button className="btn btn-wide mt-5">Get more details</button>
                     </div>
@@ -30,20 +60,22 @@ const JobDetails = () => {
 
             {/* bid form */}
             <div className='hero min-h-screen'>
-                <div className="card flex-shrink-0 w-full max-w-sm md:max-w-xl m-10 md:m-5 shadow-xl border bg-slate-200 bg-opacity-80">
+                <div className="card flex-shrink-0 w-full max-w-sm md:max-w-xl m-10 md:m-20 shadow-xl border bg-slate-200 bg-opacity-80">
                     <div className="card-body">
-                        <form className='space-y-3'>
+                        <form onSubmit={handleBid} className='space-y-3'>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text"> Employer bid email</span>
                                 </label>
-                                <input type="email" placeholder="Enter your email" name="myemail" defaultValue={user?.email} className="input input-bordered" required />
+                                <input type="email" placeholder="Enter your email" name="myEmail" defaultValue={user?.email} className="input input-bordered" required />
                             </div>
+                            {/* read only */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Buyer Email</span>
                                 </label>
-                                <input type="email" placeholder="Enter your email" name="buyerEmail" defaultValue={email} className="input input-bordered" required />
+                                <input type="email" name="buyerEmail" defaultValue={email} className="input input-bordered" required />
+                                
                             </div>
 
                             <div className="form-control  ">
@@ -64,7 +96,7 @@ const JobDetails = () => {
                                 </label>
                                 <input type="date" name="deadline" required />
                             </div>
-                            <input type="submit" value="Bid on the project" className="btn btn-block border-l-2 mt-8 bg-slate-300" />
+                            <input type="submit" value="Bid on the project" className="btn btn-block border-l-2 mt-8 text-white bg-[#2071AB] hover:bg-[#2071AB]" />
                         </form>
                     </div>
                 </div>

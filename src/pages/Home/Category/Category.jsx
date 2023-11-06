@@ -66,7 +66,9 @@ const Category = () => {
                                         </div>
                                         <p className='font-medium text-red-500'>Deadline: {job?.deadline} </p>
                                         <div className="card-actions justify-end">
-                                            <button className="btn bg-[#2071AB] text-white hover:text-black">Bid Now</button>
+                                            <Link to={`/jobDetails/${job._id}`} >
+                                                <button className="btn bg-[#2071AB] text-white hover:text-black">Bid Now</button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +96,9 @@ const Category = () => {
                                         </div>
                                         <p className='font-medium text-red-500 '>Deadline: {job?.deadline} </p>
                                         <div className="card-actions justify-end">
-                                            <button className="btn bg-[#2071AB] text-white hover:text-black ">Bid Now</button>
+                                            <Link to={`/jobDetails/${job._id}`} >
+                                                <button className="btn bg-[#2071AB] text-white hover:text-black">Bid Now</button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
