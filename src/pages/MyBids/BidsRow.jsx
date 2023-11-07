@@ -1,31 +1,52 @@
 import React from 'react';
 
-const BidsRow = ({bid}) => {
-    console.log(bid)
-    const {jobTitle,deadline,buyerEmail} = bid;
+const BidsRow = ({ send, handleDelet, handleCompleted,handleProgress,handleCancelled }) => {
+    console.log(send.status)
+
+    // const { _id, jobTitle, deadline, buyerEmail} = send;
+
     return (
         <tr>
             <td>
-                <label>
-                    <input type="checkbox" className="checkbox" />
-                </label>
+                <button onClick={() => handleDelet(send._id)} className="btn btn-circle btn-sm btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
             </td>
             <td>
                 <div className="flex items-center space-x-3">
                     <div>
-                        <div className="font-bold">{jobTitle}</div>
+                        <div className="font-bold">{send?.jobTitle}</div>
                     </div>
                 </div>
             </td>
             <td>
-                {buyerEmail}
+                {send?.buyerEmail}
             </td>
-            <td>{deadline}</td>
+            <td>{send?.deadline}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">pending</button>
+                <p>{send.status} </p>
+            </th>
+            <th className='flex flex-col gap-2'>
+                {
+                    send.status == 'pending' ?
+                    <button onClick={() => handleProgress(send._id)} className='btn btn-sm'>Progress</button> : ""
+
+                }
+                {
+                    send.status == 'progress' ?
+                    <button onClick={() => handleCompleted(send._id)} className='btn btn-sm'>Completed</button> :
+                    ""
+
+                }
+                 
+                    {
+                        send.status == 'cancelled' ? "" :
+                        <button onClick={() => handleCancelled(send._id)} className='btn btn-sm'>Cancelled</button>
+                    }
+
             </th>
         </tr>
-    );
+    )
 };
 
 export default BidsRow;

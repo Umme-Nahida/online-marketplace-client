@@ -17,7 +17,8 @@ const JobDetails = () => {
         const minPrice = form.minPrice.value;
         const maxPrice = form.maxPrice.value;
         const deadline = form.deadline.value;
-        const bidInfo = { myEmail, buyerEmail, minPrice, maxPrice, deadline, category,description,jobTitle }
+        const status = "pending";
+        const bidInfo = { myEmail, buyerEmail, minPrice, maxPrice, deadline, category,description,jobTitle,status }
         console.log(bidInfo)
         fetch('http://localhost:5000/storeBidJobs', {
             method: 'POST',
@@ -87,13 +88,13 @@ const JobDetails = () => {
                                 <label className="label">
                                     <span className="label-text">Minimum price</span>
                                 </label>
-                                <input type="number" placeholder="minimum price" name="minPrice" className="input input-bordered" required />
+                                <input type="number" placeholder="minimum price" name="minPrice" defaultValue={minPrice} className="input input-bordered" required />
                             </div>
                             <div className="form-control ">
                                 <label className="label">
                                     <span className="label-text">Miximum price</span>
                                 </label>
-                                <input type="number" placeholder="miximum price" name="maxPrice" className="input input-bordered" required />
+                                <input type="number" placeholder="miximum price" name="maxPrice"  defaultValue={maxPrice} className="input input-bordered" required />
                             </div>
                             <div className='form-control'>
                                 <label className='label'>
