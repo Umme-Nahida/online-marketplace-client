@@ -14,6 +14,7 @@ import AddJobs from './pages/AddJobs/AddJobs.jsx';
 import Category from './pages/Home/Category/Category.jsx';
 import JobDetails from './pages/jobDetails/JobDetails.jsx';
 import MyBids from './pages/MyBids/MyBids.jsx';
+import MyPost from './pages/MyPostedJobs/MyPost.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
       {
         path: '/myBids',
         element: <MyBids></MyBids>,
+      },
+      {
+        path: '/myPostJobs',
+        element: <MyPost></MyPost>,
+        loader: ()=> fetch('http://localhost:5000/allJobs')
       },
       {
         path: '/login',

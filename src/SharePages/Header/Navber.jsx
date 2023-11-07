@@ -54,7 +54,7 @@ const Navber = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/myPost' className={({ isActive, isPending }) =>
+                        <NavLink to='/myPostJobs' className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
                         } >
                             My posted job
