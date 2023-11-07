@@ -21,7 +21,7 @@ const Category = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 md:gap-10 justify-items-stretch m-10 md:m-20 items-center'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 md:gap-10 justify-items-stretch m-10 md:m-10 items-center'>
                         {
                             categoryOne.map(job =>
                                 <div key={job?._id} className="card  bg-base-100 shadow-xl">

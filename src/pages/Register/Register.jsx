@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -8,6 +8,9 @@ import { FcGoogle } from "react-icons/fc";
 
 
 const Register = () => {
+    useEffect(()=>{
+        document.title = "Entree | Register";
+    },[])
     const [showPassword, setShowPassword] = useState(false);
     const { creatUser, googleSignIn } = useContext(AuthContext)
     const navigate = useNavigate()

@@ -1,11 +1,15 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import useAuthUserInfo from '../Hooks/useAuthUserInfo';
 import Swal from 'sweetalert2';
 
 const JobDetails = () => {
     const { user } = useAuthUserInfo()
-    const handleBid = e =>{
+    const navigate = useNavigate()
+    const jobDetailsData = useLoaderData()
+    const { category, deadline, description, jobTitle, email, maxPrice, minPrice } = jobDetailsData;
+
+    const handleBid = e => {
         e.preventDefault();
         const form = e.target;
         const myEmail = form.myEmail.value;
@@ -13,30 +17,31 @@ const JobDetails = () => {
         const minPrice = form.minPrice.value;
         const maxPrice = form.maxPrice.value;
         const deadline = form.deadline.value;
-        const bidInfo = {myEmail,buyerEmail,minPrice,maxPrice,deadline}
+        const bidInfo = { myEmail, buyerEmail, minPrice, maxPrice, deadline, category,description,jobTitle }
         console.log(bidInfo)
         fetch('http://localhost:5000/storeBidJobs', {
-            method:'POST',
-            headers:{
-                'constent-type' : 'application/json'
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
             body: JSON.stringify(bidInfo)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.insertedId){
-                Swal.fire(
-                    'Great',
-                    'You have add the bid project successfully',
-                    'success'
-                  )
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Great',
+                        'You have add the bid project successfully',
+                        'success'
+                    )
+                }
+                navigate('/myBids');
+            })
 
     }
-
-    const jobDetailsData = useLoaderData()
-    const { category, deadline, description, jobTitle, email, maxPrice, minPrice } = jobDetailsData;
+ 
+    
     return (
         <div>
             <div className="hero min-h-screen bg-cover bg-[url('https://i.ibb.co/1RtN0Sk/1696575386372.jpg')]" >
@@ -75,7 +80,7 @@ const JobDetails = () => {
                                     <span className="label-text">Buyer Email</span>
                                 </label>
                                 <input type="email" name="buyerEmail" defaultValue={email} className="input input-bordered" required />
-                                
+
                             </div>
 
                             <div className="form-control  ">
@@ -96,7 +101,7 @@ const JobDetails = () => {
                                 </label>
                                 <input type="date" name="deadline" required />
                             </div>
-                            <input type="submit" value="Bid on the project" className="btn btn-block border-l-2 mt-8 text-white bg-[#2071AB] hover:bg-[#2071AB]" />
+                                <input type="submit" value="Bid on the project" className="btn btn-block border-l-2 mt-8 text-white bg-[#2071AB] hover:bg-[#2071AB]" />
                         </form>
                     </div>
                 </div>

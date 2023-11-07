@@ -13,6 +13,7 @@ import AuthProvider from './AuthProvider/AuthProvider.jsx';
 import AddJobs from './pages/AddJobs/AddJobs.jsx';
 import Category from './pages/Home/Category/Category.jsx';
 import JobDetails from './pages/jobDetails/JobDetails.jsx';
+import MyBids from './pages/MyBids/MyBids.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: '/addJobs',
         element: <AddJobs></AddJobs>
+      },
+      {
+        path: '/myBids',
+        element: <MyBids></MyBids>,
       },
       {
         path: '/login',

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useAuthUserInfo from '../Hooks/useAuthUserInfo';
 import { Result } from 'postcss';
 import Swal from 'sweetalert2';
 // import { useState } from 'react';
 
 const AddJobs = () => {
+    useEffect(()=>{
+        document.title = "Entree | Add jobs";
+    },[])
     const { user } = useAuthUserInfo()
     console.log(user)
     const handleSubmit = e => {
