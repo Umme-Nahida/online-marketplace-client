@@ -6,7 +6,7 @@ const MyPost = () => {
     },[])
     return (
         <div>
-            thsi is post job
+            dispaly the all jobs projects 
         </div>
     );
 };
