@@ -18,11 +18,13 @@ import MyPost from './pages/MyPostedJobs/MyPost.jsx';
 import UpdatePostJob from './pages/MyPostedJobs/UpdatePostJob.jsx';
 import MyRequests from './pages/MyRequest/MyRequests.jsx';
 import PrivateRout from './PrivateRoute/PrivateRoute/PrivateRoute.jsx';
+import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
