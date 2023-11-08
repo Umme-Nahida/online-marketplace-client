@@ -53,7 +53,7 @@ const AddJobs = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="Enter your email" name="email" defaultValue={user?.email} className="input input-bordered" required />
+                                <input type="email" placeholder="Enter your email" name="email" readOnly defaultValue={user?.email} className="input input-bordered" required />
                             </div>
                             <div className="form-control w-1/2">
                                 <label className="label">

@@ -80,7 +80,7 @@ const JobDetails = () => {
                                 <label className="label">
                                     <span className="label-text">Buyer Email</span>
                                 </label>
-                                <input type="email" name="buyerEmail" defaultValue={email} className="input input-bordered" required />
+                                <input type="email" name="buyerEmail" readOnly defaultValue={email} className="input input-bordered" required />
 
                             </div>
 

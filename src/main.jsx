@@ -15,6 +15,7 @@ import Category from './pages/Home/Category/Category.jsx';
 import JobDetails from './pages/jobDetails/JobDetails.jsx';
 import MyBids from './pages/MyBids/MyBids.jsx';
 import MyPost from './pages/MyPostedJobs/MyPost.jsx';
+import UpdatePostJob from './pages/MyPostedJobs/UpdatePostJob.jsx';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
       {
         path: '/jobDetails/:id',
         element: <JobDetails></JobDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/jobDetails/${params.id}`)
+      },
+      {
+        path: '/updatePostJob/:id',
+        element: <UpdatePostJob></UpdatePostJob>,
         loader: ({params})=> fetch(`http://localhost:5000/jobDetails/${params.id}`)
       },
     ]
