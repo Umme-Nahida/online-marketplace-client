@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,6 +15,8 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
     const {signInUser} =useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
     
     const handleSignIn = e =>{
         e.preventDefault();

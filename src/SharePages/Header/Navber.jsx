@@ -101,6 +101,16 @@ const Navber = () => {
                             Login
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                            to="/register"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
+                            }
+                        >
+                            Register
+                        </NavLink>
+                    </li>
 
                 </ul>
             </div>

@@ -4,8 +4,8 @@ const ErrorPage = () => {
     const error = useRouteError()
     console.log(error)
     return (
-        <div className='text-center mt-40'>
-            <img src={img} alt="" />
+        <div className='text-center max-w-3xl mx-auto'>
+            <img src={img} alt=""  />
             <p>{error.statusText || error.message}</p>
             <Link to ="/"><button className='btn mt-5'>Go Back</button></Link>
         </div>

@@ -45,6 +45,7 @@ const signInUser = (email,password)=>{
         const subscribe = onAuthStateChanged(auth,currentUser=>{
              console.log('ami tmk observe korci',currentUser)
              setUser(currentUser)
+             setLoading(false)
          })
      
          return ()=>{
