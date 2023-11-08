@@ -97,9 +97,10 @@ const MyBids = () => {
    
     return (
         <div>
+            <h1 className="text-3xl md:text-5xl font-bold text-center pt-10">My bids</h1>
             {/* <h1>here to all bids data {bids.length}</h1> */}
             <div className="overflow-x-auto" >
-                <table className="table">
+                <table className="table max-w-[150px] md:max-w-6xl mx-auto my-5 md:my-10">
                     {/* head */}
                     <thead>
                         <tr>

@@ -44,7 +44,7 @@ const AddJobs = () => {
     return (
 
         <div className="hero min-h-screen bg-[url('https://i.ibb.co/ctgtQ3J/digital-design-businessman-show-growth-graph-earning-with-digital-marketing-strategy-35761-549.jpg')] bg-cover py-10">
-            <div className="card flex-shrink-0 w-full max-w-4xl shadow-xl border bg-slate-200 bg-opacity-80">
+            <div className="card flex-shrink-0 w-full max-w-sm md:max-w-4xl shadow-xl border bg-slate-200 bg-opacity-80">
                 <div className="card-body">
                     <form onSubmit={handleSubmit} className='space-y-3'>
                         {/* row num 1 */}
@@ -55,9 +55,9 @@ const AddJobs = () => {
                                 </label>
                                 <input type="email" placeholder="Enter your email" name="email" readOnly defaultValue={user?.email} className="input input-bordered" required />
                             </div>
-                            <div className="form-control w-1/2">
+                            <div className="form-control ">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text">Job Title</span>
                                 </label>
                                 <input type="text" placeholder="Enter your job title" name="jobTitle" className="input input-bordered" required />
                             </div>

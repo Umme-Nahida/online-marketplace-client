@@ -9,6 +9,15 @@ const Navber = () => {
         <li className="mb-5" ><Link to="/">Home</Link></li>
         <li className="mb-5" ><Link to="/login">Login</Link></li>
         <li className="mb-5" ><Link to="/register">Register</Link></li>
+        {
+            user && <>
+                <li className="mb-5" ><Link to="/addJobs">Add Job</Link></li>
+                <li className="mb-5" ><Link to="/myPostJobs">My posted jobs</Link></li>
+                <li className="mb-5" ><Link to="/bidRequests">Bid Requests</Link></li>
+                <li className="mb-5" ><Link to="/myBids">My bids</Link></li>
+                <li className="mb-5" ><Link to="/myBids">My bids</Link></li>
+            </>
+        }
     </>
 
     const handleSignOut = () => {

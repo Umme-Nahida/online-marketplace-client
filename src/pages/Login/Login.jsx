@@ -44,9 +44,9 @@ const Login = () => {
     return (
 
         <div className="hero min-h-screen bg-[url('https://i.ibb.co/pffTTkR/1706e25eac3c20ab4bf5d2062264a288af29f496-1324x742.webp')] py-10">
-            <div className="card flex-shrink-0 w-full max-w-md shadow-2xl border bg-slate-200 bg-opacity-80">
+            <div className="card flex-shrink-0 w-full max-w-xs md:max-w-md shadow-2xl border bg-slate-200 bg-opacity-80">
                 <form onSubmit={handleSignIn} className="card-body">
-                   <h1 className="text-5xl font-bold text-center pb-5">Login now!</h1>
+                   <h1 className="text-3xl md:text-5xl font-bold text-center pb-5">Login now!</h1>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Email</span>

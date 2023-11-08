@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import useAuthUserInfo from '../Hooks/useAuthUserInfo';
 import Swal from 'sweetalert2';
 
@@ -8,6 +8,7 @@ const UpdatePostJob = () => {
  console.log(updateData)
  const {jobTitle,description,deadline,category,maxPrice,minPrice,email,_id } = updateData;
  const {user} = useAuthUserInfo()
+ const navigate = useNavigate()
 
     const handleUpdatePost = e => {
         e.preventDefault();
@@ -36,6 +37,7 @@ const UpdatePostJob = () => {
                         'You have update the post job successfully',
                         'success'
                       )
+                      navigate('/myPostJobs')
                 }
             })
     }
