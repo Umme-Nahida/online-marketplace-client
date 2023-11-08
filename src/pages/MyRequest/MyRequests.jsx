@@ -122,9 +122,7 @@ const MyRequests = () => {
                                 handleDelet = {handleDelet}
                                 handleProgress = {handleProgress}
                                 handleCompleted = {handleCompleted}
-                                handleCancelled = {handleCancelled}
-                             
-                            >
+                                handleCancelled = {handleCancelled}>
                                
                             </AllBidsRow>
 
