@@ -55,37 +55,42 @@ const Navber = () => {
                             Home
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to='/addJobs' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                        } >
-                            Add job
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/myPostJobs' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                        } >
-                            My posted job
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/bidRequests' className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                        } >
-                            Bid Requests
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to="/myBids"
-                            className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                            }
-                        >
-                            My bids
-                        </NavLink>
-                    </li>
+                    {
+                        user && <>
+                            <li>
+                                <NavLink to='/addJobs' className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
+                                } >
+                                    Add job
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/myPostJobs' className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
+                                } >
+                                    My posted job
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/bidRequests' className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
+                                } >
+                                    Bid Requests
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/myBids"
+                                    className={({ isActive, isPending }) =>
+                                        isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
+                                    }
+                                >
+                                    My bids
+                                </NavLink>
+                            </li>
+
+                        </>
+                    }
                     <li>
                         <NavLink
                             to="/login"
@@ -103,7 +108,7 @@ const Navber = () => {
                 {
                     user ?
                         <>
-                           <p>{user?.displayName}</p>
+                            <p>{user?.displayName}</p>
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <img src={user?.photoURL} />

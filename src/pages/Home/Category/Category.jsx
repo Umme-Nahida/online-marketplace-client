@@ -9,6 +9,7 @@ const Category = () => {
     const categoryOne = allCategoryJobs?.filter(job => job?.category === "web-development")
     const categoryTwo = allCategoryJobs?.filter(job => job?.category === "digital-marketing")
     const categoryThree = allCategoryJobs?.filter(job => job?.category === "graphics-design")
+    console.log("this is category", categoryThree)
 
 
     return (
@@ -37,9 +38,16 @@ const Category = () => {
                                         </div>
                                         <p className='font-medium text-red-500 '>Deadline: {job?.deadline} </p>
                                         <div className="card-actions justify-end">
-                                            <Link to={`/jobDetails/${job._id}`} >
-                                                <button className="btn bg-[#2071AB] text-white hover:text-black">Bid Now</button>
-                                            </Link>
+                                            {
+                                                job.category ?
+                                                    <Link to={`/jobDetails/${job._id}`} >
+                                                        <button className="btn bg-[#2071AB] visible text-white hover:text-black">Bid Now</button>
+                                                    </Link> :
+                                                    <Link to={`/jobDetails/${job._id}`} >
+                                                        <button className="btn bg-[#2071AB] text-white hover:text-black">Bid Now</button>
+                                                    </Link>
+
+                                            }
                                         </div>
                                     </div>
                                 </div>

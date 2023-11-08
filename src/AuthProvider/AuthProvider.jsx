@@ -7,23 +7,28 @@ export const AuthContext = createContext(null)
 const auth = getAuth(app)
 const AuthProvider = ({children}) => {
   const [user,setUser] = useState(null)
+  const [loading,setLoading] = useState(true)
   const provider = new GoogleAuthProvider()
     
 //   create user 
   const creatUser = (email,password)=>{
+    setLoading(true)
      return createUserWithEmailAndPassword(auth,email,password)
   }
 
 //   sign in user 
 const signInUser = (email,password)=>{
+    setLoading(true)
     return signInWithEmailAndPassword(auth,email,password)
 }
  const googleSignIn = ()=>{
+    setLoading(true)
      return signInWithPopup(auth,provider)
  }
 
 // signOut user
  const logOut = ()=>{
+    setLoading(true)
     return signOut(auth)
  }
 
@@ -32,7 +37,8 @@ const signInUser = (email,password)=>{
      creatUser,
      signInUser,
      googleSignIn,
-     logOut 
+     logOut,
+     loading 
     }
 
     useEffect(()=>{

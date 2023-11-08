@@ -18,8 +18,10 @@ const JobDetails = () => {
         const maxPrice = form.maxPrice.value;
         const deadline = form.deadline.value;
         const status = "pending";
+        console.log(buyerEmail)
         const bidInfo = { myEmail, buyerEmail, minPrice, maxPrice, deadline, category,description,jobTitle,status }
         console.log(bidInfo)
+        
         fetch('http://localhost:5000/storeBidJobs', {
             method: 'POST',
             headers: {

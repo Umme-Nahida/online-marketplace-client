@@ -31,7 +31,7 @@ const Login = () => {
                 'success'
               )
               e.target.reset()
-              navigate('/')
+              navigate(location?.state ? location.state : '/')
 
         })
         .catch(error=>{

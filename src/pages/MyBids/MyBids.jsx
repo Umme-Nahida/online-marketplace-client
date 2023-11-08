@@ -69,30 +69,18 @@ const MyBids = () => {
             .then(data => console.log(data))
     }
 
-    const handleProgress = id => {
-        console.log(id)
-        fetch(`http://localhost:5000/updateBidProgressStatus/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ status: 'progress' })
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
-    }
-    const handleCancelled = id => {
-        console.log(id)
-        fetch(`http://localhost:5000/updateBidRejectStatus/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ status: 'cancelled' })
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
-    }
+    // const handleCancelled = id => {
+    //     console.log(id)
+    //     fetch(`http://localhost:5000/updateBidRejectStatus/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify({ status: 'cancelled' })
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => console.log(data))
+    // }
 
    
     return (
@@ -121,8 +109,6 @@ const MyBids = () => {
                              send = {bid}
                              handleDelet = {handleDelet}
                              handleCompleted = {handleCompleted}
-                             handleProgress = {handleProgress}
-                             handleCancelled = {handleCancelled}
                             ></BidsRow>
 
                         </tbody>)

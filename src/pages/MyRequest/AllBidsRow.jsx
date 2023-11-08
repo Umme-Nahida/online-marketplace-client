@@ -1,7 +1,7 @@
 import React from 'react';
 
-const BidsRow = ({ send, handleDelet,handleCompleted}) => {
-    console.log(send.status)
+const AllBidsRow = ({ send, handleDelet,handleProgress, handleCompleted,handleCancelled }) => {
+    console.log(send)
 
     // const { _id, jobTitle, deadline, buyerEmail} = send;
 
@@ -24,29 +24,28 @@ const BidsRow = ({ send, handleDelet,handleCompleted}) => {
             </td>
             <td>{send?.deadline}</td>
             <th>
-                <p>{send.status} </p>
+                <p>{send?.status} </p>
             </th>
             <th className='flex flex-col gap-2'>
-                {/* {
-                    send.status == 'pending' ?
+                {
+                    send?.status == 'pending' ?
                     <button onClick={() => handleProgress(send._id)} className='btn btn-sm'>Accept</button> : ""
 
-                } */}
+                }
                 {
-                    send.status == 'progress' ?
-                    <button onClick={() => handleCompleted(send._id)} className='btn btn-sm'>Complet</button> :
+                    send?.status == 'progress' ?
+                    <button onClick={() => handleCompleted(send._id)} className='btn btn-sm'>Completed</button> :
                     ""
 
                 }
                  
-                    {/* {
-                        send.status == 'cancelled' ? "" :
+                    {
+                        send?.status == 'cancelled' ? "" :
                         <button onClick={() => handleCancelled(send._id)} className='btn btn-sm'>Cancelled</button>
-                    } */}
+                    }
 
             </th>
         </tr>
     )
 };
-
-export default BidsRow;
+export default AllBidsRow;
