@@ -22,7 +22,7 @@ const AddJobs = () => {
         const maxPrice = form.maxPrice.value;
         const jobInfo = { email, jobTitle, deadline, description, category, minPrice, maxPrice }
         console.log(jobInfo)
-        fetch('http://localhost:5000/allJobs',{
+        fetch('https://assignment-11-server-dun.vercel.app/allJobs',{
             method:'POST',
             headers:{
                 'content-type' : 'application/json'

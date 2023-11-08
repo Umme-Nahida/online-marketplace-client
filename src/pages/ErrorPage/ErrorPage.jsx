@@ -1,13 +1,13 @@
 import { Link, useRouteError } from 'react-router-dom';
-import img from "../../../public/image/404.gif"
+// import img from "../../../public/image/404.gif"
 const ErrorPage = () => {
     const error = useRouteError()
     console.log(error)
     return (
         <div className='text-center max-w-3xl mx-auto'>
-            <img src={img} alt=""  />
+            <img src="https://i.ibb.co/D5HQSWh/9-SKB1a-SUCp.gif" alt="" />
             <p>{error.statusText || error.message}</p>
-            <Link to ="/"><button className='btn mt-5'>Go Back</button></Link>
+            <Link to ="/"><button className='btn bg-[#2071AB]'>Go Back</button></Link>
         </div>
     );
 };

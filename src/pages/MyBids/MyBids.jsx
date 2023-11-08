@@ -13,7 +13,7 @@ const MyBids = () => {
         document.title = "Entree | My bids";
     }, [])
 
-    const url = (`http://localhost:5000/displayMyBids?email=${user?.email}`)
+    const url = (`https://assignment-11-server-dun.vercel.app/displayMyBids?email=${user?.email}`)
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -36,7 +36,7 @@ const MyBids = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/bidJobs/${id}`, {
+                fetch(`https://assignment-11-server-dun.vercel.app/bidJobs/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -58,7 +58,7 @@ const MyBids = () => {
 
     const handleCompleted = id => {
         console.log(id)
-        fetch(`http://localhost:5000/updateBidCompletStatus/${id}`, {
+        fetch(`https://assignment-11-server-dun.vercel.app/updateBidCompletStatus/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const MyBids = () => {
 
     // const handleCancelled = id => {
     //     console.log(id)
-    //     fetch(`http://localhost:5000/updateBidRejectStatus/${id}`, {
+    //     fetch(`https://assignment-11-server-dun.vercel.app/updateBidRejectStatus/${id}`, {
     //         method: 'PATCH',
     //         headers: {
     //             'content-type': 'application/json'
