@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import useAuthUserInfo from '../Hooks/useAuthUserInfo';
 import Swal from 'sweetalert2';
 
 const JobDetails = () => {
     const { user } = useAuthUserInfo()
+    const [buyerEmail,setBuyerEmail] = useState()
     const navigate = useNavigate()
     const jobDetailsData = useLoaderData()
     const { category, deadline, description, jobTitle, email, maxPrice, minPrice } = jobDetailsData;
@@ -18,7 +19,7 @@ const JobDetails = () => {
         const maxPrice = form.maxPrice.value;
         const deadline = form.deadline.value;
         const status = "pending";
-        console.log(buyerEmail)
+        setBuyerEmail(buyerEmail)
         const bidInfo = { myEmail, buyerEmail, minPrice, maxPrice, deadline, category,description,jobTitle,status }
         console.log(bidInfo)
         
@@ -43,8 +44,8 @@ const JobDetails = () => {
             })
 
     }
- 
-    
+    console.log(user?.email)
+    console.log(email)
     return (
         <div>
             <div className="hero min-h-screen bg-cover bg-[url('https://i.ibb.co/1RtN0Sk/1696575386372.jpg')]" >
@@ -104,7 +105,8 @@ const JobDetails = () => {
                                 </label>
                                 <input type="date" name="deadline" required />
                             </div>
-                                <input type="submit" value="Bid on the project" className="btn btn-block border-l-2 mt-8 text-white bg-[#2071AB] hover:bg-[#2071AB]" />
+                                {/* <input type="submit" value="Bid on the project" className="btn btn-block border-l-2 mt-8 text-white bg-[#2071AB] hover:bg-[#2071AB]" /> */}
+                                <button type='submit' disabled = {user?.email == email?true : false} className="btn btn-block border-l-2 mt-8 text-white bg-[#2071AB] hover:bg-[#2071AB]"  >Bid on the project </button>
                         </form>
                     </div>
                 </div>
