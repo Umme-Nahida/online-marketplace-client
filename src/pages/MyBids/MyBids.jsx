@@ -8,19 +8,20 @@ import Swal from "sweetalert2";
 const MyBids = () => {
     const { user } = useAuthUserInfo()
     const [bids, setBids] = useState([])
+    const [sort,setSort] = useState([])
     console.log(bids)
     useEffect(() => {
         document.title = "Entree | My bids";
     }, [])
-
     const url = (`https://assignment-11-server-dun.vercel.app/displayMyBids?email=${user?.email}`)
+
     useEffect(() => {
-        fetch(url)
+        fetch(url, { credentials: 'include' })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 setBids(data)
-                
+
             })
     }, [url])
 
@@ -69,56 +70,56 @@ const MyBids = () => {
             .then(data => console.log(data))
     }
 
-    // const handleCancelled = id => {
-    //     console.log(id)
-    //     fetch(`https://assignment-11-server-dun.vercel.app/updateBidRejectStatus/${id}`, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ status: 'cancelled' })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => console.log(data))
-    // }
+    useEffect(()=>{
+        fetch('http://localhost:5000/sortingBid')
+        .then(res =>res.json())
+        .then(data => setSort(data))
+    },[])
 
-   
-    return (
-        <div>
-            <h1 className="text-3xl md:text-5xl font-bold text-center pt-10">My bids</h1>
-            {/* <h1>here to all bids data {bids.length}</h1> */}
-            <div className="overflow-x-auto" >
-                <table className="table max-w-[150px] md:max-w-6xl mx-auto my-5 md:my-10">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
-                            <th>Job Title</th>
-                            <th>Email</th>
-                            <th>Deadline</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    {
-                        bids?.map(bid => <tbody key={bid._id}>
-                            <BidsRow 
-                             send = {bid}
-                             handleDelet = {handleDelet}
-                             handleCompleted = {handleCompleted}
-                            ></BidsRow>
+    const handleSorting = ()=>{
+        setBids(sort)
+}
 
-                        </tbody>)
-                    }
+        
 
-                </table >
-            </div>
+return (
+    <div className="text-center"> 
+        <h1 className="text-3xl md:text-5xl font-bold text-center pt-10">My bids</h1>
+        <button onClick={ handleSorting} className=" btn text-base md:text-base font-bold mt-5 ">sorting</button>
+        {/* <h1>here to all bids data {bids.length}</h1> */}
+        <div className="overflow-x-auto" >
+            <table className="table max-w-[150px] md:max-w-6xl mx-auto my-5 md:my-10">
+                {/* head */}
+                <thead>
+
+                    <tr>
+                        <th>
+                            <label>
+                                <input type="checkbox" className="checkbox" />
+                            </label>
+                        </th>
+                        <th>Job Title</th>
+                        <th>Email</th>
+                        <th>Deadline</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                {
+                    bids?.map(bid => <tbody key={bid._id}>
+                        <BidsRow
+                            send={bid}
+                            handleDelet={handleDelet}
+                            handleCompleted={handleCompleted}
+                        ></BidsRow>
+
+                    </tbody>)
+                }
+
+            </table >
         </div>
-    
-    );
+    </div>
+
+);
 };
 
 export default MyBids;

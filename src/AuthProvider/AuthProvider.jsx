@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createContext } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, } from "firebase/auth";
 import app from "./_firbase.confic";
+import axios from "axios";
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app)
@@ -44,7 +45,14 @@ const signInUser = (email,password)=>{
     useEffect(()=>{
         const subscribe = onAuthStateChanged(auth,currentUser=>{
              console.log('ami tmk observe korci',currentUser)
+             const userEmail = currentUser?.email || user?.email
              setUser(currentUser)
+            if(currentUser){
+                axios.post('http://localhost:5000/jwt',{userEmail}, {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data)
+                })
+            }
              setLoading(false)
          })
      

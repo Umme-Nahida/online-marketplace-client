@@ -13,9 +13,9 @@ const Category = () => {
 
 
     return (
-        <div className=' bg-black bg-opacity-10'>
-            <Tabs className='border-2 border-[#AAAAAA]'>
-                <TabList>
+        <div className=' bg-[#23499A] bg-opacity-10 m-10'>
+            <Tabs className='pb-5'>
+                <TabList className='bg-[#ED9828] pt-0'>
                     <Tab>Web development </Tab>
                     <Tab>Digital markenting</Tab>
                     <Tab>Graphics design</Tab>

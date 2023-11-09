@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AllBids from "./AllBidsRow";
 import useAuthUserInfo from "../Hooks/useAuthUserInfo";
 import AllBidsRow from "./AllBidsRow";
+import { linkWithCredential } from "firebase/auth";
 
 const MyRequests = () => {
     const { user } = useAuthUserInfo();
@@ -97,7 +98,7 @@ const MyRequests = () => {
 
     return (
         <div>
-            <h1 className="text-3xl md:text-5xl font-bold text-center pt-10">My bids</h1>
+            <h1 className="text-3xl md:text-5xl font-bold text-center pt-10">All bid requests</h1>
             {/* <h1>here to all bids data {bids.length}</h1> */}
             <div className="overflow-x-auto" >
                 <table className="table max-w-[150px] md:max-w-6xl mx-auto my-5 md:my-10">
