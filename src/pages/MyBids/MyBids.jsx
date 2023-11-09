@@ -71,7 +71,7 @@ const MyBids = () => {
     }
 
     useEffect(()=>{
-        fetch('http://localhost:5000/sortingBid')
+        fetch('https://assignment-11-server-dun.vercel.app/sortingBid')
         .then(res =>res.json())
         .then(data => setSort(data))
     },[])

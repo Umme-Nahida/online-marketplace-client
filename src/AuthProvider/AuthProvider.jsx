@@ -48,7 +48,7 @@ const signInUser = (email,password)=>{
              const userEmail = currentUser?.email || user?.email
              setUser(currentUser)
             if(currentUser){
-                axios.post('http://localhost:5000/jwt',{userEmail}, {withCredentials: true})
+                axios.post('https://assignment-11-server-dun.vercel.app/jwt',{userEmail}, {withCredentials: true})
                 .then(res =>{
                     console.log(res.data)
                 })
