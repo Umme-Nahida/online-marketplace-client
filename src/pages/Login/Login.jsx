@@ -33,10 +33,8 @@ const Login = () => {
                     'You have login successfully',
                     'success'
                 )
-                const user = { email }
                 e.target.reset()
-               
-                // navigate(location?.state ? location.state : "/")
+                navigate(location?.state ? location.state : "/")
                 
             })
             .catch(error => {

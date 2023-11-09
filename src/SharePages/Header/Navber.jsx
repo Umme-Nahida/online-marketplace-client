@@ -127,7 +127,9 @@ const Navber = () => {
                             <button onClick={handleSignOut} className="btn btn-primary bg-[#5593DD] rounded-md text-white ">Log out</button>
                         </>
                         :
-                        <button className="btn bg-[#5593DD] text-white hover:text-black">login</button>
+                        <Link to='/login'>
+                          <button className="btn bg-[#5593DD] text-white hover:text-black">login</button>
+                        </Link>
                 }
             </div>
         </div>
