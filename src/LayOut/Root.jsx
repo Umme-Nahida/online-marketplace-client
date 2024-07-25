@@ -6,7 +6,7 @@ import Footer from "../SharePages/Footer/Footer";
 const Root = () => {
     return (
         <div>
-            <div className="max-w-[1345px] mx-auto">
+            <div>
                 <Navber></Navber>
                 <Outlet></Outlet>
                 <Footer></Footer>

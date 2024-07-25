@@ -20,7 +20,7 @@ const AllBidsRow = ({ send, handleDelet,handleProgress, handleCompleted,handleCa
                 </div>
             </td>
             <td>
-                {send?.buyerEmail}
+                {send?.myEmail}
             </td>
             <td>{send?.deadline}</td>
             <th>
@@ -34,14 +34,14 @@ const AllBidsRow = ({ send, handleDelet,handleProgress, handleCompleted,handleCa
                 }
                 {
                     send?.status == 'progress' ?
-                    <button onClick={() => handleCompleted(send._id)} className='btn btn-sm'>Completed</button> :
+                    <button onClick={() => handleCompleted(send._id)} className='btn btn-sm'>Complete</button> :
                     ""
 
                 }
                  
                     {
                         send?.status == 'cancelled' ? "" :
-                        <button onClick={() => handleCancelled(send._id)} className='btn btn-sm'>Cancelled</button>
+                        <button onClick={() => handleCancelled(send._id)} className='btn btn-sm'>Cancel</button>
                     }
 
             </th>

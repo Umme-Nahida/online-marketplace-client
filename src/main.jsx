@@ -46,7 +46,6 @@ const router = createBrowserRouter([
       {
         path: '/myPostJobs',
         element: <PrivateRout><MyPost></MyPost></PrivateRout>,
-        loader: ()=> fetch('https://assignment-11-server-dun.vercel.app/allJobs')
       },
       {
         path: '/bidRequests',

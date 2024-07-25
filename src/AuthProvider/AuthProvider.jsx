@@ -47,19 +47,27 @@ const signInUser = (email,password)=>{
              console.log('ami tmk observe korci',currentUser)
              const userEmail = currentUser?.email || user?.email
              setUser(currentUser)
-            if(currentUser){
+             setLoading(false)
+
+              if(currentUser){
                 axios.post('https://assignment-11-server-dun.vercel.app/jwt',{userEmail}, {withCredentials: true})
                 .then(res =>{
                     console.log(res.data)
                 })
-            }
-             setLoading(false)
+              }else{
+                axios.post('https://assignment-11-server-dun.vercel.app/logOut',{userEmail}, {withCredentials: true})
+                .then(res => {
+                  console.log(res.data)
+                })
+              }
+            
+             
          })
      
          return ()=>{
              return subscribe()
          }
-     },[])
+     },[user?.email])
 
     return (
         <AuthContext.Provider value={authInfo}>

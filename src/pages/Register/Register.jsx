@@ -8,6 +8,8 @@ import { FcGoogle } from "react-icons/fc";
 
 
 const Register = () => {
+    const axiosPublic = useAxiosPublic()
+    console.log(axiosPublic)
     useEffect(()=>{
         document.title = "Entree | Register";
     },[])
@@ -26,6 +28,7 @@ const Register = () => {
         creatUser(email, password)
             .then(result => {
                 console.log(result.user)
+
                 Swal.fire(
                     'Good job',
                     'you have sign up successfully',
@@ -42,6 +45,7 @@ const Register = () => {
             .catch(error => {
                 console.log(error)
             })
+
 
 
     }

@@ -7,21 +7,21 @@ import { linkWithCredential } from "firebase/auth";
 const MyRequests = () => {
     const { user } = useAuthUserInfo();
     const [bidRequest, setBidRequest] = useState()
-
+    const [status,setStatus] = useState('pending')
     useEffect(() => {
         document.title = "Entree | My request";
     }, [])
 
-    const url = (`https://assignment-11-server-dun.vercel.app/displayMyBids?email=${user?.email}`)
+    const url = (`https://assignment-11-server-dun.vercel.app/getMyAllBidRequest/${user?.email}`)
     useEffect(() => {
-        fetch(url)
+        fetch(url, {credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 setBidRequest(data)
 
             })
-    }, [url])
+    }, [url,status])
 
     const handleDelet = id => {
         console.log(id)
@@ -65,7 +65,9 @@ const MyRequests = () => {
             body: JSON.stringify({ status: 'cancelled' })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                setStatus('cancelled')
+            })
     }
 
     const handleCompleted = id => {
@@ -78,7 +80,10 @@ const MyRequests = () => {
             body: JSON.stringify({ status: 'completed' })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                setStatus('completed')
+            })
     }
 
 
@@ -92,7 +97,10 @@ const MyRequests = () => {
             body: JSON.stringify({ status: 'progress' })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                setStatus('progress')
+            })
     }
 
 
@@ -111,7 +119,7 @@ const MyRequests = () => {
                                 </label>
                             </th>
                             <th>Job Title</th>
-                            <th>Email</th>
+                            <th>Employer Email</th>
                             <th>Deadline</th>
                             <th>Status</th>
                         </tr>

@@ -1,14 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuthUserInfo from "../Hooks/useAuthUserInfo";
 
 const MyPost = () => {
+    const {user} = useAuthUserInfo()
     useEffect(() => {
         document.title = "Entree | My posted job";
     }, [])
 
-    const allJobs = useLoaderData()
-    const [allJob, setAllJob] = useState(allJobs)
+    const [allJob, setAllJob] = useState([])
+    
+    const url = (`https://assignment-11-server-dun.vercel.app/userAllJobs?email=${user?.email}`)
+    useEffect(()=>{
+        fetch(url, {credentials:'include'})
+        .then(res => res.json())
+        .then(data => {
+            setAllJob(data)
+        })
+    },[url])
 
     const handleDelet = id => {
         console.log(id)

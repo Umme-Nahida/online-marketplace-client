@@ -13,10 +13,10 @@ const MyBids = () => {
     useEffect(() => {
         document.title = "Entree | My bids";
     }, [])
-    const url = (`https://assignment-11-server-dun.vercel.app/displayMyBids?email=${user?.email}`)
+    const url = (`https://assignment-11-server-dun.vercel.app/getMyBids/${user?.email}`)
 
     useEffect(() => {
-        fetch(url, { credentials: 'include' })
+        fetch(url, {credentials:'include'})
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -99,7 +99,7 @@ return (
                             </label>
                         </th>
                         <th>Job Title</th>
-                        <th>Email</th>
+                        <th>Buyer Email</th>
                         <th>Deadline</th>
                         <th>Status</th>
                     </tr>

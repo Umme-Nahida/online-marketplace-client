@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import useAuthUserInfo from '../Hooks/useAuthUserInfo';
-import { Result } from 'postcss';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 // import { useState } from 'react';
 
 const AddJobs = () => {
+    const navigate = useNavigate()
     useEffect(()=>{
         document.title = "Entree | Add jobs";
     },[])
@@ -36,8 +37,10 @@ const AddJobs = () => {
                     'Good job',
                     'You have add job successfully',
                     'success'
-                  )
+                )
+                navigate('/myPostJobs')
             }
+            
         })
     }
 
@@ -103,6 +106,7 @@ const AddJobs = () => {
                             <textarea name="description" placeholder='write description' cols="10" rows="5"></textarea>
                         </div>
                         <input type="submit" value="Add Product" className="btn btn-block border-l-2 mt-8 bg-slate-300" />
+                       
                     </form>
                 </div>
             </div>
