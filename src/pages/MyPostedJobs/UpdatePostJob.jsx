@@ -22,7 +22,7 @@ const UpdatePostJob = () => {
         const maxPrice = form.maxPrice.value;
         const updateJobInfo = { email, jobTitle, deadline, description, category, minPrice, maxPrice }
         console.log(updateJobInfo)
-        fetch(`https://assignment-11-server-dun.vercel.app/updatePostJob/${_id}`,{
+        fetch(`http://localhost:5000/updatePostJob/${_id}`,{
             method:'PUT',
             headers: {
                 'content-type' : 'application/json'

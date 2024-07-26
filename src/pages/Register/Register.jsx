@@ -8,8 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 
 
 const Register = () => {
-    const axiosPublic = useAxiosPublic()
-    console.log(axiosPublic)
+   
     useEffect(()=>{
         document.title = "Entree | Register";
     },[])

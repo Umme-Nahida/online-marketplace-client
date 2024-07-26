@@ -23,7 +23,7 @@ const JobDetails = () => {
         const bidInfo = { myEmail, buyerEmail, minPrice, maxPrice, deadline, category,description,jobTitle,status }
         console.log(bidInfo)
         
-        fetch('https://assignment-11-server-dun.vercel.app/storeBidJobs', {
+        fetch('http://localhost:5000/storeBidJobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

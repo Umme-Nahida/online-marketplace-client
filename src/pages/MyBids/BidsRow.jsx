@@ -1,8 +1,7 @@
 import React from 'react';
 
 const BidsRow = ({ send, handleDelet,handleCompleted}) => {
-    console.log(send.status)
-
+    // console.log(send.status)
     // const { _id, jobTitle, deadline, buyerEmail} = send;
 
     return (

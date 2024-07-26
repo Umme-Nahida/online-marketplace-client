@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Banner from "../Banner/Banner";
+// import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
 import OurValue from "../OurValue/OurValue";
 import Aboutus from "../About/Aboutus";
@@ -10,7 +10,7 @@ const Home = () => {
     },[])
     return (
         <div>
-            <Banner></Banner>
+            {/* <Banner></Banner> */}
             <Category></Category>
             <Aboutus></Aboutus>
             <OurValue></OurValue>

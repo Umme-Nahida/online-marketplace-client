@@ -50,12 +50,12 @@ const signInUser = (email,password)=>{
              setLoading(false)
 
               if(currentUser){
-                axios.post('https://assignment-11-server-dun.vercel.app/jwt',{userEmail}, {withCredentials: true})
+                axios.post('http://localhost:5000/jwt',{userEmail}, {withCredentials: true})
                 .then(res =>{
                     console.log(res.data)
                 })
               }else{
-                axios.post('https://assignment-11-server-dun.vercel.app/logOut',{userEmail}, {withCredentials: true})
+                axios.post('http://localhost:5000/logOut',{userEmail}, {withCredentials: true})
                 .then(res => {
                   console.log(res.data)
                 })
