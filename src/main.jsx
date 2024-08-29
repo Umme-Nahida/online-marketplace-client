@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: ()=> fetch('http://localhost:5000/allJobs')
+        loader: ()=> fetch('https://assignment-11-server-orpin.vercel.app/allJobs')
       },
       {
         path: '/category',
@@ -62,12 +62,12 @@ const router = createBrowserRouter([
       {
         path: '/jobDetails/:id',
         element: <PrivateRout><JobDetails></JobDetails></PrivateRout>,
-        loader: ({params})=> fetch(`http://localhost:5000/jobDetails/${params.id}`)
+        loader: ({params})=> fetch(`https://assignment-11-server-orpin.vercel.app/jobDetails/${params.id}`)
       },
       {
         path: '/updatePostJob/:id',
         element: <UpdatePostJob></UpdatePostJob>,
-        loader: ({params})=> fetch(`http://localhost:5000/jobDetails/${params.id}`)
+        loader: ({params})=> fetch(`https://assignment-11-server-orpin.vercel.app/jobDetails/${params.id}`)
       },
     ]
   },
