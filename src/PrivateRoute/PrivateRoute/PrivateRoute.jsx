@@ -9,9 +9,6 @@ const PrivateRout = ({ children }) => {
     console.log(location.pathname)
     if (loading) {
         return <div className="text-center text-blue-600">
-            <span className="loading loading-spinner loading-xs"></span>
-            <span className="loading loading-spinner loading-sm"></span>
-            <span className="loading loading-spinner loading-md"></span>
             <span className="loading loading-spinner loading-lg"></span>
         </div>
     }

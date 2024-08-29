@@ -6,9 +6,10 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Navber = () => {
     const { user, logOut } = useContext(AuthContext)
     const link = <>
-        <li className="mb-5" ><Link to="/">Home</Link></li>
+        <li className="mb-5" ><NavLink to="/" className={({ isActive, isPending }) =>   isPending ? "pending border" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""  }>
+          Home
+        </NavLink></li>
         <li className="mb-5" ><Link to="/login">Login</Link></li>
-        <li className="mb-5" ><Link to="/register">Register</Link></li>
         {
             user && <>
                 <li className="mb-5" ><Link to="/addJobs">Add Job</Link></li>
@@ -45,73 +46,7 @@ const Navber = () => {
 
                 <div className="navbar-center hidden lg:flex">
                     <ul className="flex flex-col md:flex-row lg:flex-row items-center justify-center text-base text-[#0d0d0f] font-bold lg:gap-8 md:gap-5 gap-3 ml-40 md:ml-64 lg:ml-0">
-                        <li>
-                            <NavLink
-                                to="/"
-                                className={({ isActive, isPending }) =>
-                                    isPending ? "pending border" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                                }
-                            >
-                                Home
-                            </NavLink>
-                        </li>
-                        {
-                            user && <>
-                                <li>
-                                    <NavLink to='/addJobs' className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                                    } >
-                                        Add job
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/myPostJobs' className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                                    } >
-                                        My posted job
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to='/bidRequests' className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                                    } >
-                                        Bid Requests
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        to="/myBids"
-                                        className={({ isActive, isPending }) =>
-                                            isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                                        }
-                                    >
-                                        My bids
-                                    </NavLink>
-                                </li>
-
-                            </>
-                        }
-                        <li>
-                            <NavLink
-                                to="/login"
-                                className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                                }
-                            >
-                                Login
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/register"
-                                className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "text-[#5593DD] py-2 px-6 rounded-full bg-gray-200 text-xm font-semibold" : ""
-                                }
-                            >
-                                Register
-                            </NavLink>
-                        </li>
-
+                      {link}
                     </ul>
                 </div>
                 <div className="navbar-end flex justify-center items-center space-x-1">
