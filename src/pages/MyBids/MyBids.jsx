@@ -12,7 +12,7 @@ const MyBids = () => {
   useEffect(() => {
     document.title = "Entree | My bids";
   }, []);
-  const url = `http://localhost:5000/getMyBids?email=${user?.email}`;
+  const url = `https://assignment-11-server-orpin.vercel.app/getMyBids?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url, { credentials: "include" })
@@ -35,7 +35,7 @@ const MyBids = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/bidJobs/${id}`, {
+        fetch(`https://assignment-11-server-orpin.vercel.app/bidJobs/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -57,7 +57,7 @@ const MyBids = () => {
 
   const handleCompleted = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/updateBidCompletStatus/${id}`, {
+    fetch(`https://assignment-11-server-orpin.vercel.app/updateBidCompletStatus/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -72,7 +72,7 @@ const MyBids = () => {
 
   const handleSorting = async() => {
    
-       const res = await fetch('http://localhost:5000/sortingBid')
+       const res = await fetch('https://assignment-11-server-orpin.vercel.app/sortingBid')
        const data = await res.json();
        console.log(data)
        setSort(data);
