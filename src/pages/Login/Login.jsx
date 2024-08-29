@@ -49,11 +49,13 @@ const Login = () => {
         googleSignIn()
         .then(result=>{
             console.log(result.user)
+            navigate(location?.state ? location.state : "/")
         })
         .catch(err=>{
           console.log(err)
         })
      }
+
 
     return (
         <div className="hero min-h-screen bg-[url('https://i.ibb.co/pffTTkR/1706e25eac3c20ab4bf5d2062264a288af29f496-1324x742.webp')] py-10">
