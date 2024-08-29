@@ -12,7 +12,7 @@ const MyRequests = () => {
         document.title = "Entree | My request";
     }, [])
 
-    const url = (`http://localhost:5000/getMyAllBidRequest/${user?.email}`)
+    const url = (`https://assignment-11-server-orpin.vercel.app/getMyAllBidRequest/${user?.email}`)
     useEffect(() => {
         fetch(url, {credentials:'include'})
             .then(res => res.json())
@@ -35,7 +35,7 @@ const MyRequests = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/bidJobs/${id}`, {
+                fetch(`https://assignment-11-server-orpin.vercel.app/bidJobs/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -57,7 +57,7 @@ const MyRequests = () => {
 
     const handleCancelled = id => {
         console.log(id)
-        fetch(`http://localhost:5000/updateBidRejectStatus/${id}`, {
+        fetch(`https://assignment-11-server-orpin.vercel.app/updateBidRejectStatus/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -72,7 +72,7 @@ const MyRequests = () => {
 
     const handleCompleted = id => {
         console.log(id)
-        fetch(`http://localhost:5000/updateBidCompletStatus/${id}`, {
+        fetch(`https://assignment-11-server-orpin.vercel.app/updateBidCompletStatus/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -89,7 +89,7 @@ const MyRequests = () => {
 
     const handleProgress = id => {
         console.log(id)
-        fetch(`http://localhost:5000/updateBidProgressStatus/${id}`, {
+        fetch(`https://assignment-11-server-orpin.vercel.app/updateBidProgressStatus/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

@@ -11,7 +11,7 @@ const MyPost = () => {
 
     const [allJob, setAllJob] = useState([])
     
-    const url = (`http://localhost:5000/userAllJobs?email=${user?.email}`)
+    const url = (`https://assignment-11-server-orpin.vercel.app/userAllJobs?email=${user?.email}`)
     useEffect(()=>{
         fetch(url, {credentials:'include'})
         .then(res => res.json())
@@ -32,7 +32,7 @@ const MyPost = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myPostedJobDelet/${id}`, {
+                fetch(`https://assignment-11-server-orpin.vercel.app/myPostedJobDelet/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
