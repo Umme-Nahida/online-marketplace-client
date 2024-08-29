@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Category from "../Category/Category";
 import OurValue from "../OurValue/OurValue";
 import Aboutus from "../About/Aboutus";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
     useEffect(()=>{
@@ -10,7 +11,7 @@ const Home = () => {
     },[])
     return (
         <div>
-            {/* <Banner></Banner> */}
+            <Banner></Banner>
             <Category></Category>
             <Aboutus></Aboutus>
             <OurValue></OurValue>
